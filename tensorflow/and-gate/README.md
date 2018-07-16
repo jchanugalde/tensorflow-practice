@@ -30,4 +30,4 @@
     1.0
     >>> print(sess.run(false_float))
     ```
-* It seems like the gist of it is: (1) apply random weights by performing matrix multiplication between training input and weights, (2) calculate the difference (i.e. error) between two 'points' (i.e. training set output value and NN output value), (3) 
+* It seems like the gist of it is: (1) apply random weights by performing matrix multiplication between training input and weights, (2) calculate the difference (i.e. error) between two 'points' (i.e. training set output value and NN output value), (3) adjust weights by adding the old weights and delta matrix, and (4) repeat for 10 epochs or when error is 0.

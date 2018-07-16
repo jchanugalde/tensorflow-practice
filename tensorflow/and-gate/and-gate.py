@@ -1,13 +1,5 @@
 import tensorflow as tf # Import library
 
-# Get path of the current dir, then use it to create paths:
-CURRENT_DIR = os.path.dirname(__file__)
-file_path = os.path.join(CURRENT_DIR, 'test.txt')
-
-# Then work using the absolute paths:
-f = open(file_path,'w')
-f.write('testing the script')
-
 T, F = 1., 0 # Assign values to true (1) and false (0)
 
 bias = 1.0
@@ -35,7 +27,7 @@ training_output = [
 # These are going to be the weighted connections between each input value (remember
 # that there are four). We need 3 rows if we want to perform matrix multiplication
 # in line 40.
-w = tf.Variable(tf.random_normal([3,1]), float32)
+w = tf.Variable(tf.random_normal([3,1]), tf.float32)
 
 # step(x) = { 1 if x > 0; -1 otherwise }
 def step(x):
@@ -69,3 +61,7 @@ epoch, max_epochs = 0, 10
 while err > target and epoch < max_epochs:
     epoch += 1
     err, _ = sess.run([mse, train])
+
+print('epoch:', epoch, 'mse:', err)
+
+print(sess.run(w))
